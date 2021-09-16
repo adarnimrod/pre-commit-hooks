@@ -2,6 +2,12 @@
 
 A collection of [pre-commit](https://pre-commit.com/) hooks.
 
+## Requirements
+
+- Supported Python 3 version (at time of writing 3.6 or later).
+- [pre-commmit](https://pre-commit.com/) 2.0.0 or later.
+- [Terraform](https://www.terraform.io/) (for the terraform hooks).
+
 ## Example .pre-commit-config.yaml
 
 ```yaml
@@ -13,12 +19,52 @@ A collection of [pre-commit](https://pre-commit.com/) hooks.
     - id: ansible-syntax-check
     - id: ansible-vault-check
     - id: docker-compose
-    - id: terraform-fmt  # uses the installed system terraform.
-    - id: terraform-validate  # uses the installed system terraform.
+    - id: terraform-fmt
+    - id: terraform-validate
     - id: poetry-check
     - id: branch-merge-conflict
     - id: pip-outdated
 ```
+
+## Available hooks
+
+### `shell-validate`
+
+Check shell scripts with `/bin/sh -en`.
+
+### `ansible-syntax-check`
+
+Check Ansible playbooks for syntax errors.
+
+### `ansible-vault-check`
+
+Verify that Ansible Vault files are vaulted.
+
+### `docker-compose`
+
+Validate the Docker Compose file using docker-compose config.
+
+### `terraform-fmt`
+
+Format Terraform files using `terraform fmt`.
+Requires an installed `terraform`.
+
+### `terraform-validate`
+
+Validate Terraform modules using `terraform validate`.
+Requires an installed `terraform`.
+
+### `poetry-check`
+
+Validate `pyproject.toml` files using Poetry.
+
+### `branch-merge-conflict`
+
+Checks for merge conflicts with a specific branch.
+
+### `pip-outdated`
+
+Find outdated Python dependencies in your requirements files.
 
 ## License
 

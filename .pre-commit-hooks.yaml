@@ -5,7 +5,6 @@
   language: script
   entry: ./hooks/shell-validate
   types: [shell]
-  minimum_pre_commit_version: 0.15.0 #  Because of types.
 
 - id: ansible-syntax-check
   name: Syntax check Ansible playbooks
@@ -27,7 +26,6 @@
 - id: docker-compose
   name: docker-compose config
   description: Validate the Docker Compose file using docker-compose config
-  minimum_pre_commit_version: '0.18.0'
   language: python
   entry: docker-compose-validate
   files: docker-compose
@@ -65,7 +63,7 @@
 
 - id: pip-outdated
   name: pip-outdated
-  description: Find outdated dependencies in your requirements files.
+  description: Find outdated Python dependencies in your requirements files.
   language: python
   entry: pip-outdated
   args: ['--verbose']
