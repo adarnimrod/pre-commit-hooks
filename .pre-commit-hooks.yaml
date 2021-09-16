@@ -1,0 +1,72 @@
+---
+- id: shell-validate
+  name: Lint shell scripts
+  description: Run /bin/sh -en against shell scripts.
+  language: script
+  entry: ./hooks/shell-validate
+  types: [shell]
+  minimum_pre_commit_version: 0.15.0 #  Because of types.
+
+- id: ansible-syntax-check
+  name: Syntax check Ansible playbooks
+  description: Check Ansible playbooks for syntax errors.
+  language: python
+  entry: ansible-playbook
+  files: playbook\.yml
+  types: [yaml]
+  args: ['--inventory=localhost,', '--syntax-check']
+
+- id: ansible-vault-check
+  name: Verify vaulted files
+  description: Verify that Ansible Vault files are vaulted.
+  language: pygrep
+  files: vault
+  entry: |-
+      ANSIBLE_VAULT
+
+- id: docker-compose
+  name: docker-compose config
+  description: Validate the Docker Compose file using docker-compose config
+  minimum_pre_commit_version: '0.18.0'
+  language: python
+  entry: docker-compose-validate
+  files: docker-compose
+  types: [yaml]
+
+- id: terraform-fmt
+  name: Format Terraform files
+  description: Format Terraform files using terraform fmt
+  language: python
+  types: [terraform]
+  entry: terraform-fmt
+
+- id: terraform-validate
+  name: Validate Terraform modules
+  description: Validate Terraform modules using terraform validate
+  language: python
+  types: [terraform]
+  entry: terraform-validate
+
+- id: poetry-check
+  name: poetry check
+  description: Validate pyproject.toml files using Poetry
+  language: python
+  entry: poetry-check
+  types: [toml]
+  files: pyproject
+
+- id: branch-merge-conflicts
+  name: branch merge conflicts
+  description: Checks for merge conflicts with a specific branch.
+  language: script
+  entry: ./hooks/branch-merge-conflicts
+  pass_filenames: false
+  always_run: true
+
+- id: pip-outdated
+  name: pip-outdated
+  description: Find outdated dependencies in your requirements files.
+  language: python
+  entry: pip-outdated
+  args: ['--verbose']
+  files: 'requirements.*\.txt$'

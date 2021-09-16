@@ -1,15 +1,23 @@
 # pre-commit hooks
 
-A collection of [pre-commit](https://pre-commit.com/) hooks. 
+A collection of [pre-commit](https://pre-commit.com/) hooks.
 
 ## Example .pre-commit-config.yaml
-
 
 ```yaml
 ---
 - repo: https://git.shore.co.il/nimrod/pre-commit-hooks.git
-  rev: 0.1.0
+  rev: 0.1.0  # Check for the latest tag or run pre-commit autoupdate.
   hooks:
+    - id: shell-validate
+    - id: ansible-syntax-check
+    - id: ansible-vault-check
+    - id: docker-compose
+    - id: terraform-fmt  # uses the installed system terraform.
+    - id: terraform-validate  # uses the installed system terraform.
+    - id: poetry-check
+    - id: branch-merge-conflict
+    - id: pip-outdated
 ```
 
 ## License
