@@ -1,5 +1,7 @@
 # pre-commit hooks
 
+[![pipeline status](https://git.shore.co.il/nimrod/pre-commit-hooks/badges/main/pipeline.svg)](https://git.shore.co.il/nimrod/pre-commit-hooks/-/commits/main)
+
 A collection of [pre-commit](https://pre-commit.com/) hooks.
 
 ## Requirements
