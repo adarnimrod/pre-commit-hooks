@@ -19,13 +19,11 @@ A collection of [pre-commit](https://pre-commit.com/) hooks.
   hooks:
     - id: shell-validate
     - id: ansible-syntax-check
-    - id: ansible-vault-check
     - id: docker-compose
     - id: terraform-fmt
     - id: terraform-validate
     - id: poetry-check
     - id: branch-merge-conflict
-    - id: pip-outdated
 ```
 
 ## Available hooks
@@ -37,10 +35,6 @@ Check shell scripts with `/bin/sh -en`.
 ### `ansible-syntax-check`
 
 Check Ansible playbooks for syntax errors.
-
-### `ansible-vault-check`
-
-Verify that Ansible Vault files are vaulted.
 
 ### `docker-compose`
 
@@ -63,10 +57,6 @@ Validate `pyproject.toml` files using Poetry.
 ### `branch-merge-conflict`
 
 Checks for merge conflicts with a specific branch.
-
-### `pip-outdated`
-
-Find outdated Python dependencies in your requirements files.
 
 ## License
 

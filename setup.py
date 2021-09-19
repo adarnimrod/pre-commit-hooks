@@ -12,7 +12,6 @@ setup(
     install_requires=[
         "ansible>=4",
         "docker-compose>=1.20",
-        "pip-outdated",
         "poetry",
     ],
     entry_points={
@@ -20,7 +19,7 @@ setup(
             "docker-compose-validate=hooks.docker_compose_validate:main",
             "terraform-validate=hooks.terraform_validate:main",
             "terraform-fmt=hooks.terraform_fmt:main",
-            "poetry-check=hook.poetry_check:main",
+            "poetry-check=hooks.poetry_check:main",
         ]
     },
     packages=find_packages(),

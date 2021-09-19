@@ -15,14 +15,6 @@
   types: [yaml]
   args: ['--inventory=localhost,', '--syntax-check']
 
-- id: ansible-vault-check
-  name: Verify vaulted files
-  description: Verify that Ansible Vault files are vaulted.
-  language: pygrep
-  files: vault
-  entry: |-
-      ANSIBLE_VAULT
-
 - id: docker-compose
   name: docker-compose config
   description: Validate the Docker Compose file using docker-compose config
@@ -60,11 +52,3 @@
   entry: ./hooks/branch-merge-conflicts
   pass_filenames: false
   always_run: true
-
-- id: pip-outdated
-  name: pip-outdated
-  description: Find outdated Python dependencies in your requirements files.
-  language: python
-  entry: pip-outdated
-  args: ['--verbose']
-  files: 'requirements.*\.txt$'
