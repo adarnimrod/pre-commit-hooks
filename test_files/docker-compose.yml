@@ -1,0 +1,5 @@
+---
+version: '3.5'
+services:
+  httpd:
+    image: docker.io/library/httpd:2.4-alpine
