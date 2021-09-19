@@ -2,5 +2,28 @@
 include:
   - project: shore/ci-templates
     file: templates/pre-commit.yml
-  - project: shore/ci-templates
-    file: templates/pre-commit-repo.yml
+
+pre-commit-try-repo:
+  stage: test
+  image: registry.shore.co.il/ci-images:pre-commit
+  tags: [ns4.shore.co.il]
+  variables:
+    XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
+  before_script:
+    - >-
+      curl https://apt.releases.hashicorp.com/gpg |
+      GNUPGHOME=/tmp gpg --dearmor >
+      /usr/share/keyrings/hashicorp.gpg
+    - . /etc/os-release
+    # yamllint disable rule:line-length
+    - >-
+      echo "deb [ signed-by=/usr/share/keyrings/hashicorp.gpg ] https://apt.releases.hashicorp.com $VERSION_CODENAME main" >
+      /etc/apt/sources.list.d/hashicorp.list
+    # yamllint enable rule:line-length
+    - apt-get update
+    - apt-get install -y terraform
+  script:
+    - pre-commit try-repo --all-files ./
+  cache:
+    paths:
+      - .cache/
