@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "mnpw"
+version = "0.1.5"
+description = "My Nagios plugin wrapper"
+authors = ["Adar Nimrod <nimrod@shore.co.il>"]
+license = "MIT"
+homepage = "https://git.shore.co.il/shore/mnpw"
+repository = "https://git.shore.co.il/shore/mnpw"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]

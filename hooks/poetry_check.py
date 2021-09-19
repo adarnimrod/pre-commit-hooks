@@ -1,4 +1,4 @@
-"""Validate Docker Compose files."""
+"""Validate pyproject.toml files."""
 
 import argparse
 import pathlib
@@ -13,7 +13,9 @@ def main():
     args = parser.parse_args()
     hooks.utils.check_executable("poetry")
     return hooks.utils.bulk_check(
-        lambda x: hooks.utils.check_dir(["poetry", "check"], dir=x),
+        lambda x: hooks.utils.check_directory(
+            ["poetry", "check"], directory=x
+        ),
         hooks.utils.unique_directories(args.file),
     )
 
