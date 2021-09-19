@@ -85,6 +85,6 @@ def bulk_check(checker, items):
     returncode = 0
     for item in items:
         check = checker(item)
-        if check() > 0:
+        if check > 0:
             returncode = 1
     return returncode

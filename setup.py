@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("VERSION", "r", encoding="utf-8") as fh:
     VERSION = fh.read().strip()
@@ -23,4 +23,5 @@ setup(
             "poetry-check=hook.poetry_check:main",
         ]
     },
+    packages=find_packages(),
 )

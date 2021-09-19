@@ -7,24 +7,23 @@ import sys
 import hooks.utils
 
 
-def checker():
-    def check(directory):
-        if (
-            hooks.utils.check(
-                ["terraform", "init", "-backend=false"], directory=directory
-            )
-            > 0
-        ):
-            return 1
-        if (
-            hooks.utils.check(["terraform", "validate"], directory=directory)
-            > 0
-        ):
-            return 1
+def tf_validate(directory):
+    if (
+        hooks.utils.check_directory(
+            ["terraform", "init", "-backend=false"], directory=directory
+        )
+        > 0
+    ):
+        return 1
+    if (
+        hooks.utils.check_directory(
+            ["terraform", "validate"], directory=directory
+        )
+        > 0
+    ):
+        return 1
 
-        return 0
-
-    return check
+    return 0
 
 
 def main():
@@ -36,7 +35,7 @@ def main():
     os.putenv("TF_INPUT", "0")
     os.putenv("TF_IN_AUTOMATION", "1")
     return hooks.utils.bulk_check(
-        checker, hooks.utils.unique_directories(args.file)
+        tf_validate, hooks.utils.unique_directories(args.file)
     )
 
 
