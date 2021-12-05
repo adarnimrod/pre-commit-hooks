@@ -55,7 +55,8 @@ Requires an installed `terraform`.
 
 ### `packer-fix`
 
-Fix known backwards incompatibilities in Packer templates.
+Fix known backwards incompatibilities in Packer templates (just JSON files,
+until support for HCL files is added in Packer).
 
 ### `packer-fmt`
 

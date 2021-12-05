@@ -42,7 +42,7 @@
   description: Fix known backwards incompatibilities in Packer templates
   language: python
   entry: packer-fix
-  types_or: [json, hcl]
+  types_or: [json]
 
 - id: packer-fmt
   name: Format Packer templates

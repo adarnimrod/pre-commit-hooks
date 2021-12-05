@@ -6,6 +6,17 @@ import sys
 import hooks.utils
 
 
+def packer_validate(file):
+    """Validate a Packer template.
+
+    Run init when needed.
+    """
+    if str(file).endswith(".pkr.hcl") or str(file).endswith(".pkr.json"):
+        if hooks.utils.check_file(["packer", "init", file]) > 0:
+            return 1
+    return hooks.utils.check_file(["packer", "validate", file])
+
+
 def main():
     """Main entrypoint."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -13,7 +24,7 @@ def main():
     args = parser.parse_args()
     hooks.utils.check_executable("packer")
     return hooks.utils.bulk_check(
-        lambda x: hooks.utils.check_file(["packer", "validate", x]),
+        packer_validate,
         args.file,
     )
 
