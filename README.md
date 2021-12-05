@@ -22,6 +22,9 @@ A collection of [pre-commit](https://pre-commit.com/) hooks.
     - id: docker-compose
     - id: terraform-fmt
     - id: terraform-validate
+    - id: packer-fmt
+    - id: packer-fix
+    - id: packer-validate
     - id: poetry-check
     - id: branch-merge-conflict
 ```
@@ -49,6 +52,18 @@ Requires an installed `terraform`.
 
 Validate Terraform modules using `terraform validate`.
 Requires an installed `terraform`.
+
+### `packer-fix`
+
+Fix known backwards incompatibilities in Packer templates.
+
+### `packer-fmt`
+
+Rewrites all Packer configuration files to a canonical format (just HCL files).
+
+### `packer-validate`
+
+Checks that the Packer template is valid.
 
 ### `poetry-check`
 

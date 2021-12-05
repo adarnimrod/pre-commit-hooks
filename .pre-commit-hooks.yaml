@@ -37,6 +37,27 @@
   types: [terraform]
   entry: terraform-validate
 
+- id: packer-fix
+  name: Fix Packer templates
+  description: Fix known backwards incompatibilities in Packer templates
+  language: python
+  entry: packer-fix
+  types: [json, hcl]
+
+- id: packer-fmt
+  name: Format Packer templates
+  description: Rewrites all Packer configuration files to a canonical format
+  language: python
+  entry: packer-fmt
+  types: [hcl]
+
+- id: packer-validate
+  name: Validate Packer templates
+  description: Checks that the Packer template is valid
+  language: python
+  entry: packer-validate
+  types: [json, hcl]
+
 - id: poetry-check
   name: poetry check
   description: Validate pyproject.toml files using Poetry

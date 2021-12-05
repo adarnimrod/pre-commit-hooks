@@ -21,7 +21,7 @@ pre-commit-try-repo:
       /etc/apt/sources.list.d/hashicorp.list
     # yamllint enable rule:line-length
     - apt-get update
-    - apt-get install -y terraform
+    - apt-get install -y terraform packer
   script:
     - pre-commit try-repo --all-files ./
   cache:

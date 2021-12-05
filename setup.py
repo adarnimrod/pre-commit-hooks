@@ -19,6 +19,9 @@ setup(
             "docker-compose-validate=hooks.docker_compose_validate:main",
             "terraform-validate=hooks.terraform_validate:main",
             "terraform-fmt=hooks.terraform_fmt:main",
+            "packer-fix=hooks.packer_fix:main",
+            "packer-fmt=hooks.packer_fmt:main",
+            "packer-validate=hooks.packer_validate:main",
             "poetry-check=hooks.poetry_check:main",
         ]
     },
