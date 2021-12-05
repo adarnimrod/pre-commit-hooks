@@ -10,7 +10,7 @@ repos:
       - id: check-yaml
       - id: detect-private-key
       - id: end-of-file-fixer
-        exclude: VERSION
+        exclude: VERSION|test_files
       - id: trailing-whitespace
 
   - repo: https://github.com/codespell-project/codespell.git
