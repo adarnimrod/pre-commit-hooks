@@ -8,6 +8,7 @@ pre-commit-try-repo:
   image: registry.shore.co.il/ci-images:pre-commit
   tags: [ns4.shore.co.il]
   variables:
+    PIP_CONSTRAINT: /tmp/constraint.txt
     XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
   before_script:
     - >-
@@ -22,6 +23,9 @@ pre-commit-try-repo:
     # yamllint enable rule:line-length
     - apt-get update
     - apt-get install -y terraform packer
+    # See https://github.com/yaml/pyyaml/issues/736 for the reason for this
+    # workaround. Needed until Ansible doesn't require pyyaml<6.
+    - echo 'Cython < 3.0' > "$PIP_CONSTRAINT"
   script:
     - pre-commit try-repo --all-files ./
   cache:
