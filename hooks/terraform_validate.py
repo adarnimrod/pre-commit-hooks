@@ -7,18 +7,23 @@ import sys
 import hooks.utils
 
 
-def tf_validate(directory):
+TF_CLI = os.getenv("TF_CLI", "terraform")
+
+
+def tf_validate(directory):  # noqa: D213
+    """Validate Terraform modules.
+
+    Also runs init -backend=false to install the providers.
+    """
     if (
         hooks.utils.check_directory(
-            ["terraform", "init", "-backend=false"], directory=directory
+            [TF_CLI, "init", "-backend=false"], directory=directory
         )
         > 0
     ):
         return 1
     if (
-        hooks.utils.check_directory(
-            ["terraform", "validate"], directory=directory
-        )
+        hooks.utils.check_directory([TF_CLI, "validate"], directory=directory)
         > 0
     ):
         return 1
