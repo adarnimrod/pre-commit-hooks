@@ -6,7 +6,7 @@ import sys
 import hooks.utils
 
 
-def packer_validate(file):
+def packer_validate(file):  # noqa: D213
     """Validate a Packer template.
 
     Run init when needed.

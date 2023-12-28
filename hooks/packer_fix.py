@@ -7,7 +7,7 @@ import sys
 import hooks.utils
 
 
-def packer_fix(file):
+def packer_fix(file):  # noqa: D213
     """Runs packer fix.
 
     If the invocation succeeds, overwrite the file with the fixed output from

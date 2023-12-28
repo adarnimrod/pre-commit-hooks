@@ -1,3 +1,4 @@
+# noqa: D213
 """Utilities for Python hooks.
 
 Mainly, executing external processes.
@@ -11,14 +12,17 @@ import subprocess  # nosec
 import sys
 
 
-def unique_directories(files):
-    """Returns a list of directories (pathlib.Path objects) for the files
-    passed without repetitions."""
+def unique_directories(files):  # noqa: D213
+    """Returns the directories of the given files.
+
+    Returns a unique (not repeating) list of the base directories (pathlib.Path
+    objects) for the list of files given.
+    """
     return list({pathlib.Path(x).parent for x in files})
 
 
 @contextlib.contextmanager
-def chdir(path):
+def chdir(path):  # noqa: D213
     """Context manager for changing the working directory.
 
     >>> import os
@@ -64,8 +68,11 @@ def check_file(args, file=None):
     return proc.returncode
 
 
-def check_directory(args, directory):
-    "A simple check for a directory, may be used to build more complex checks."
+def check_directory(args, directory):  # noqa: D213
+    """A simple check for a directory.
+
+    May be used to build more complex checks.
+    """
     with chdir(directory):
         proc = run(args)
         if proc.returncode > 0:
@@ -74,7 +81,7 @@ def check_directory(args, directory):
         return proc.returncode
 
 
-def bulk_check(checker, items):
+def bulk_check(checker, items):  # noqa: D213
     """Bulk check files.
 
     Some programs can only accept a single file or directory to process at a
