@@ -8,7 +8,14 @@ A collection of [pre-commit](https://pre-commit.com/) hooks.
 
 - Supported Python 3 version (at time of writing 3.6 or later).
 - [pre-commmit](https://pre-commit.com/) 2.0.0 or later.
-- [Terraform](https://www.terraform.io/) (for the terraform hooks).
+
+## Optional requirements
+
+- [Terraform](https://www.terraform.io/) or [OpenTofu](https://opentofu.org/)
+  (for the `terraform-*` hooks).
+- [Packer](https://www.packer.io/) (for the `packer-*` hooks).
+- [Docker Compose](https://docs.docker.com/compose/) (for the `docker-compose`
+  hook).
 
 ## Example .pre-commit-config.yaml
 
@@ -52,12 +59,14 @@ PyPI, add it in the `additional_dependencies` section of the hook.
 ### `terraform-fmt`
 
 Format Terraform files using `terraform fmt`.
-Requires an installed `terraform`.
+Requires an installed `terraform`. If you wish to use `tofu` instead, set the
+`TF_CLI` environment variable to `tofu`.
 
 ### `terraform-validate`
 
 Validate Terraform modules using `terraform validate`.
-Requires an installed `terraform`.
+Requires an installed `terraform`. If you wish to use `tofu` instead, set the
+`TF_CLI` environment variable to `tofu`.
 
 ### `packer-fix`
 
