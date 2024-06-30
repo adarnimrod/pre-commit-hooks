@@ -10,7 +10,7 @@ setup(
     author_email="nimrod@shore.co.il",
     version=VERSION,
     install_requires=[
-        "ansible>=4",
+        "ansible-core>=2.14",
         "poetry",
     ],
     entry_points={
