@@ -42,6 +42,12 @@ Check Ansible playbooks for syntax errors.
 ### `docker-compose`
 
 Validate the Docker Compose file using docker-compose config.
+Requires an install `docker-compose`.
+
+With previous versions of this repo, the `docker-compose` version from PyPI was
+installed as a dependency. However, at the time of writing, the package hasn't
+been updated in over 3 years. If you wish to still use the 1.x version from
+PyPI, add it in the `additional_dependencies` section of the hook.
 
 ### `terraform-fmt`
 

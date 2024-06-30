@@ -11,7 +11,6 @@ setup(
     version=VERSION,
     install_requires=[
         "ansible>=4",
-        "docker-compose>=1.20",
         "poetry",
     ],
     entry_points={
