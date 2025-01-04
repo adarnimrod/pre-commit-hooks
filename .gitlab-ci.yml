@@ -9,20 +9,11 @@ pre-commit-try-repo:
   tags: [ns4.shore.co.il]
   variables:
     PIP_CONSTRAINT: /tmp/constraint.txt
+    TF_CLI: tofu
     XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
   before_script:
-    - >-
-      curl https://apt.releases.hashicorp.com/gpg |
-      GNUPGHOME=/tmp gpg --dearmor >
-      /usr/share/keyrings/hashicorp.gpg
-    - . /etc/os-release
-    # yamllint disable rule:line-length
-    - >-
-      echo "deb [ signed-by=/usr/share/keyrings/hashicorp.gpg ] https://apt.releases.hashicorp.com $VERSION_CODENAME main" >
-      /etc/apt/sources.list.d/hashicorp.list
-    # yamllint enable rule:line-length
     - apt-get update
-    - apt-get install -y terraform packer
+    - apt-get install -y packer=1.9.5-1 tofu
     # See https://github.com/yaml/pyyaml/issues/736 for the reason for this
     # workaround. Needed until Ansible doesn't require pyyaml<6.
     - echo 'Cython < 3.0' > "$PIP_CONSTRAINT"
