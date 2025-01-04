@@ -2,7 +2,7 @@
 exclude: test_files
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v4.0.1
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
@@ -15,17 +15,17 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/codespell-project/codespell.git
-    rev: v2.1.0
+    rev: v2.3.0
     hooks:
       - id: codespell
 
   - repo: https://github.com/Yelp/detect-secrets.git
-    rev: v1.1.0
+    rev: v1.5.0
     hooks:
       - id: detect-secrets
 
   - repo: https://gitlab.com/devopshq/gitlab-ci-linter
-    rev: v1.0.2
+    rev: v1.0.6
     hooks:
       - id: gitlab-ci-linter
         args:
@@ -33,24 +33,24 @@ repos:
           - https://git.shore.co.il
 
   - repo: https://github.com/amperser/proselint.git
-    rev: 0.10.2
+    rev: 0.14.0
     hooks:
       - id: proselint
         types: [plain-text]
         exclude: LICENSE
 
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.26.3
+    rev: v1.35.1
     hooks:
       - id: yamllint
 
   - repo: https://github.com/executablebooks/mdformat.git
-    rev: 0.7.9
+    rev: 0.7.21
     hooks:
       - id: mdformat
 
   - repo: https://github.com/ambv/black.git
-    rev: 23.12.1
+    rev: 24.10.0
     hooks:
       - id: black
         args:
@@ -58,7 +58,7 @@ repos:
               --line-length=79
 
   - repo: https://github.com/PyCQA/prospector.git
-    rev: v1.10.3
+    rev: v1.13.3
     hooks:
       - id: prospector
         args:
@@ -82,7 +82,7 @@ repos:
           - bandit
 
   - repo: https://github.com/pycqa/flake8.git
-    rev: 3.9.2
+    rev: 7.1.1
     hooks:
       - id: flake8
         args:
@@ -92,16 +92,16 @@ repos:
           - flake8-bugbear
 
   - repo: https://github.com/pre-commit/pre-commit.git
-    rev: v2.15.0
+    rev: v4.0.1
     hooks:
       - id: validate_manifest
 
   - repo: https://git.shore.co.il/nimrod/pre-commit-hooks.git
-    rev: v0.1.0
+    rev: v0.5.1
     hooks:
       - id: shell-validate
 
   - repo: https://github.com/shellcheck-py/shellcheck-py.git
-    rev: v0.7.2.1
+    rev: v0.10.0.1
     hooks:
       - id: shellcheck
